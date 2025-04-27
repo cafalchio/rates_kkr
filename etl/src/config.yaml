@@ -1,4 +1,5 @@
 # I like to keep config file for url and other statics that could change
+# the sqlite db would be replaced for a external db for both etl and api to access.
 
 PENSFORD_URL: https://www.pensford.com/hs/cta/wi/redirect?encryptedPayload=AVxigLJpsIT%2BP%2BS3wdp%2BDbtvWOO7I7LRHSLUq2Nhrq6NgcTVr3TxmRcmMUQr2X56zXEPDOSGu3YmZMHQxF2zWmCeTPq1IZmHsTI1x%2BuQZSHLjEYYe879Q%2FvanHKAIRDJD%2F5LaQkqhsSe1Gezh6BCOtDURJh1qXAtcDVZTD%2F9jhpJ4oYNWC0PTwNN&webInteractiveContentId=162977110893&portalId=19621209
-DATABASE: 
+DATABASE: database.db
