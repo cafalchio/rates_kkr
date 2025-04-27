@@ -1,6 +1,7 @@
 from unittest.mock import patch
 import pandas as pd
 
+
 from processor.pensford_processor import PensfordProcessor
 
 
@@ -15,7 +16,7 @@ class mockResponse:
 def mocked_get_request(*args, **kwargs):
     return mockResponse()
 
-def mock_pd_read_excel(raw_data, skiprows, date_format):
+def mock_pd_read_excel(*args, **kwargs):
     dummy_data = pd.DataFrame(
         columns = ["Unnamed", "dummy1", "dummy2"],
         data=[
@@ -26,7 +27,6 @@ def mock_pd_read_excel(raw_data, skiprows, date_format):
     return dummy_data
         
             
-
 @patch("processor.pensford_processor.requests.get", mocked_get_request)
 @patch("processor.pensford_processor.pd.read_excel", mock_pd_read_excel)
 def test_pensford_processor_load():
@@ -35,7 +35,5 @@ def test_pensford_processor_load():
         data = [["2/10/2020", "1"]],
     )
     processor = PensfordProcessor()
-    print(processor.data)
-    print(expected_df)
     pd.testing.assert_frame_equal(left=expected_df, right=processor.data)
     
