@@ -1,6 +1,7 @@
 import pandas as pd
 import requests
-from src.config.config_parser import config
+from config.config_parser import config
+
 
 class PensfordProcessor:
     data = None
