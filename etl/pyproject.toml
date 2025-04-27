@@ -5,12 +5,16 @@ description = "ETL script that extracts the 1-Month SOFR forward rates"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "openpyxl>=3.1.5",
+    "pandas>=2.2.3",
     "pyyaml>=6.0.2",
+    "requests>=2.32.3",
 ]
 
 
 [dependency-groups]
 dev = [
+    "ipython>=9.2.0",
     "pytest>=8.3.5",
     "ruff>=0.11.7",
 ]
