@@ -18,7 +18,7 @@ class YamlParser:
             raise YamlPaserError("Config not loaded")
         try:
             return self.config[attribute]
-        except:
+        except AttributeError:
             raise YamlPaserError(f"Could not get {attribute} from config")
         
 

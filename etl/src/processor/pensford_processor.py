@@ -23,5 +23,3 @@ class PensfordProcessor:
         df.columns = df.columns.str.replace(" ", "_").str.lower()
         return df.iloc[:, :2]
 
-if __name__ == "__main__":
-    p = PensfordProcessor()
