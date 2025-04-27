@@ -1,5 +1,8 @@
 # load config yaml and create a config object to be used elsewhere
 from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+
+
 import os
 import yaml
 
@@ -26,8 +29,12 @@ class YamlParser:
             raise YamlPaserError(f"Could not get {attribute} from config")
     
     @property
-    def db(self):
-        return create_engine(self.config.get("DATABASE"))
+    def db_engine(self):
+        return create_engine(self.config.get("DATABASE"), echo=True)
+    
+    @property
+    def db_session(self):
+        return sessionmaker(bind=config.db)
     
 
 config = YamlParser(CONFIG_FILE)

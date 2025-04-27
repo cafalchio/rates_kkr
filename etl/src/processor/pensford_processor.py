@@ -28,7 +28,6 @@ class PensfordProcessor:
         return requested.content
 
     def _process(self, raw_data):
-        # pd.read_excel give few warnings when parsing excel file
         logger.info("Processing data")
         df = pd.read_excel(raw_data, skiprows=2, date_format="%d/%m/%YYYY")
         df = df.dropna(axis="columns", how="all")
@@ -38,7 +37,7 @@ class PensfordProcessor:
         return df.iloc[:, :2]
 
     def save_data(self):
-        with config.db.connect()  as conn:
+        with config.db_engine.connect() as conn:
+            # TODO: Fix to not block read, perhaps create the model?
             self.data.to_sql(name="forward_curve", con=conn, if_exists="replace")
             logger.info("Data saved to database")
-
