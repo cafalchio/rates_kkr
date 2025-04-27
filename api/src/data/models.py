@@ -10,6 +10,3 @@ class ForwardCurve(Base):
     reset_date =  Column(DateTime(timezone=False))
     market_expectations = Column(Float(precision=6))
 
-    def __repr__(self):
-        return f"Range: {self.date}"
-    

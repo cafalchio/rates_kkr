@@ -1,0 +1,2 @@
+# The database here would be external, I am assuming it will be in this place for this exercise
+DATABASE: sqlite:///etl/src/database.db
