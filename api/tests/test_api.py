@@ -13,6 +13,7 @@ def create_memory_database_engine(*args):
 
 
 class TestApi(unittest.TestCase):
+
     @patch("data.database.create_engine", new=create_memory_database_engine)
     def setUp(self):
         engine_db.dispose()
@@ -57,7 +58,9 @@ class TestApi(unittest.TestCase):
         ]
         session.add_all(mock_forward_curve)
         session.commit()
-        response = self.client.post("/forward_rates", json=mock_post_data)
+        with patch('data.rate_curve.date') as mock_date:
+            mock_date.today.return_value = date(2025, 1, 1)
+            response = self.client.post("/forward_rates", json=mock_post_data)
         assert response.status_code == 200
         assert response.json() == expected_response
 
@@ -90,7 +93,9 @@ class TestApi(unittest.TestCase):
         ]
         session.add_all(mock_forward_curve)
         session.commit()
-        response = self.client.post("/forward_rates", json=mock_post_data)
+        with patch('data.rate_curve.date') as mock_date:
+            mock_date.today.return_value = date(2025, 1, 1)
+            response = self.client.post("/forward_rates", json=mock_post_data)
         assert response.status_code == 200
         assert response.json() == expected_response
 

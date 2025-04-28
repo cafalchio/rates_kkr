@@ -20,7 +20,7 @@ def get_calculated_rates(
 ):
     curve_data = (
         session.query(Fc.market_expectations, Fc.reset_date)
-        .filter(Fc.reset_date.between(date.today().day, maturity_date))
+        .filter(Fc.reset_date.between(date.today(), maturity_date))
         .all()
     )
     if curve_data:
