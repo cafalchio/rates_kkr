@@ -1,12 +1,12 @@
 # load config yaml and create a config object to be used elsewhere
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-
-
 import os
 import yaml
 
+
 path = os.path.dirname(os.path.abspath(__file__))
+
 
 CONFIG_FILE = os.path.join(path, "config.yaml")
 
