@@ -38,7 +38,7 @@ This is the few limitations I can think now.
     * I also did not add logs in the api, I would add them in production
     
 
-In total I spend a bit more than 6h counting the time I spent reading docs while coding, writing this doc and experimenting in ipython, but I am happy with the result (besides the db). :)
+In total I spend a bit more than 6h counting the time I spent reading docs while coding, writing this doc and experimenting in ipython, but I am happy with the result (besides the db). :) + 10min to fix the date and readme.
 
 
 #### Install
@@ -59,7 +59,7 @@ In total I spend a bit more than 6h counting the time I spent reading docs while
     change the <b>/etl/src/config.yaml</b> "DATABASE" field
 
  - API
-    on <b>/api/data</b> create a .env file and add the following:
+    on <b>/api/src/data</b> create a .env file and add the following:
     * database = "sqlite:////path_to_db/database.db"
 
 #### Running
