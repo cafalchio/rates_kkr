@@ -36,7 +36,7 @@ class YamlParser:
 
     @property
     def db_engine(self):
-        return create_engine(self.config.get("DATABASE"), echo=True)
+        return create_engine(self.config.get("DATABASE"))
 
     @property
     def db_session(self):
