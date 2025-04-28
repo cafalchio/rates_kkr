@@ -1,6 +1,7 @@
 import pandas as pd
 import requests
 import logging
+import openpyxl
 from config.config_parser import config
 
 logger = logging.getLogger(__name__)
@@ -29,7 +30,8 @@ class PensfordProcessor:
 
     def _process(self, raw_data):
         logger.info("Processing data")
-        df = pd.read_excel(raw_data, skiprows=2, date_format="%d/%m/%YYYY")
+        openpyxl.reader.excel.warnings.simplefilter(action="ignore")
+        df = pd.read_excel(raw_data, skiprows=2, date_format="%d/%m/%Y")
         df = df.dropna(axis="columns", how="all")
         df = df.dropna(axis="rows", how="all")
         df = df[[col for col in df.columns if "Unnamed" not in col]]
