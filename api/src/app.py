@@ -3,6 +3,7 @@ from fastapi.responses import JSONResponse
 from data.rate_curve import get_calculated_rates
 from data.schemas import RateInput
 
+
 app = FastAPI(tile="Float rate calculator")
 
 

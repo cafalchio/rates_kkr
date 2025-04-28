@@ -112,7 +112,7 @@ class TestApi(unittest.TestCase):
             "reference_rate": "SOFR",
             "rate_floor": 0.02,
             "rate_ceiling": 0.10,
-            "rate_spread": 0.02
+            "rate_spread": 0.02,
         }
         response = self.client.post("/forward_rates", json=mock_post_data)
         assert response.status_code == 422
