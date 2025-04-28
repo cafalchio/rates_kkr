@@ -76,6 +76,6 @@ In total I spend a bit more than 6h counting the time I spent reading docs while
 
 -Docker
 * from the /api folder, build the docker file and run
-* <b>docker build -t app . && docker run -p 80:8080</b>
+* <b>docker build -t app . && docker run -p 8080:8080 app</b>
 it will open a the port 8080 in the machine to access the api
 
